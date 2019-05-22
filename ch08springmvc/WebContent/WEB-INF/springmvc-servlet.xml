@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+    <!-- 下边配置了注解自动扫描器, h0 bean可以不用显示声明 -->
+	<!-- bean id = "h0" class="demo1.HelloSpringMVC" /! -->
+    
+    <!-- 配置注解扫描器，启动自动扫描 -->
+    <context:component-scan base-package="demo1" />
+    
+    <!-- 注册MVC注解驱动 -->
+    <mvc:annotation-driven />
+    <!-- 静态资源可访问的设置：根目录下的html可访问-->
+    <mvc:default-servlet-handler />
+    
+    <!-- 配置页面解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 想使用JSTL标签的一些功能的话，那就需要用JstlView来替换InternalResourceViewResolver -->
+        <!-- property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/ -->
+        <!-- prefix(前缀）中，/WEB-INF/时一定要带jsp目录，否则因安全原因不给访问 -->
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <!-- property name="prefix" value="/views/" /-->
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+</beans>
