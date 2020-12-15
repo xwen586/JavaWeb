@@ -30,6 +30,23 @@ public class jdbc2mysql {
 			Class.forName(driverClassName);//指定连接类型
 			conn = DriverManager.getConnection(url, username, password);
 			
+			String sql = "SELECT * FROM mydb.students"; // WHERE username=?
+			pstmt = conn.prepareStatement(sql);
+			//pstmt.setNString(1, username);
+
+			rs = pstmt.executeQuery();//执行语句，得到结果集
+			while(rs.next()) {
+                int uid = rs.getInt(1);  
+                String uname = rs.getString(2);  
+                String sex = rs.getString(3);  
+                int age = rs.getInt(4);  
+                String tel = rs.getString(5);  
+                System.out.println(uid + "\t" + uname + "\t" + sex + "\t" + age + "\t" + tel );  
+            }//显示数据  
+			rs.close();
+			pstmt.close();  
+			conn.close();
+			
 
 		} catch (Exception e) {
 			throw new RuntimeException(e);
