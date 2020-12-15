@@ -2,6 +2,10 @@ package jdbc;
 
 import java.sql.*;
 
+/*
+ * 用JDBC访问SQLite3例子 (2020-12-15)
+ * 引用 sqlite-jdbc-3.34.0.jar
+ */
 public class jdbc2sqlite {
 
 	public static void main(String[] args) {
