@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <properties resource="mybatis/sqlite.properties"></properties>
+	<environments default="sqlite">		
+		<environment id="mysql"><!--配置mysql的环境 -->
+			<!--配置事务的类型 -->
+			<transactionManager type="JDBC"></transactionManager>
+			<!--配置连接池 -->
+			<dataSource type="POOLED">
+				<!-- 配置连接数据库的4个基本信息 -->
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://192.168.99.100:3306/mydb" />
+				<property name="username" value="root" />
+				<property name="password" value="mypwd" />
+			</dataSource>
+		</environment>
+
+		<environment id="sqlite">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="org.sqlite.JDBC" />
+				<property name="url"
+					value="jdbc:sqlite:E:\\workspace\\sts4\\db\\mydb.sqlit3.db" />
+			</dataSource>
+		</environment>
+		<environment id="sqlite3">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="${sqlServer.driver}" />
+				<property name="url" value="${sqlServer.url}" />
+			</dataSource>
+		</environment>
+		
+	</environments>
+
+	<!--指定映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件 -->
+	<mappers>
+		<mapper resource="mybatis/userMapper.xml" />
+	</mappers>
+</configuration>
+
