@@ -5,7 +5,7 @@
 
 <configuration>
     <properties resource="mybatis/sqlite.properties"></properties>
-	<environments default="sqlite">		
+	<environments default="mysql">		
 		<environment id="mysql"><!--配置mysql的环境 -->
 			<!--配置事务的类型 -->
 			<transactionManager type="JDBC"></transactionManager>

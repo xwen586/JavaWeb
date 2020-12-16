@@ -45,9 +45,9 @@ public class mb2sqlite {
 		} finally {
 		}
 
-		//
+		
+		//使用MyBatis提供的Resources类加载mybatis的配置文件（它也加载关联的映射文件）
 		try {
-			// 使用MyBatis提供的Resources类加载mybatis的配置文件（它也加载关联的映射文件）
 			Reader reader = Resources.getResourceAsReader("mybatis/SqlMapConfig.xml");
 			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
 			SqlSession session = sqlSessionFactory.openSession();
