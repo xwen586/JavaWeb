@@ -15,51 +15,43 @@ public class jdbc2mysql {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Jdbc to MySQL demo.");
-		Connection conn = null;   //数据库的连接
-		Statement stat = null;   //操作语句
-        PreparedStatement pstmt = null; //预操作语句
-		ResultSet rs = null;  //返回
-		
-		String driverClassName = "com.mysql.jdbc.Driver";
+		Connection conn = null; // 数据库的连接
+		PreparedStatement stmt = null; // 预操作语句
+		ResultSet rset = null; // 返回
+
+		String driverClassName = "com.mysql.jdbc.Driver";// com.mysql.cj.jdbc.Driver
 		String url = "jdbc:mysql://192.168.99.100:3306/mydb";
 		String username = "root";
 		String password = "mypwd";
 
 		try {
-			
-			Class.forName(driverClassName);//指定连接类型
-			conn = DriverManager.getConnection(url, username, password);
-			
-			String sql = "SELECT * FROM mydb.students"; // WHERE username=?
-			pstmt = conn.prepareStatement(sql);
-			//pstmt.setNString(1, username);
 
-			rs = pstmt.executeQuery();//执行语句，得到结果集
-			while(rs.next()) {
-                int uid = rs.getInt(1);  
-                String uname = rs.getString(2);  
-                String sex = rs.getString(3);  
-                int age = rs.getInt(4);  
-                String tel = rs.getString(5);  
-                System.out.println(uid + "\t" + uname + "\t" + sex + "\t" + age + "\t" + tel );  
-            }//显示数据  
-			rs.close();
-			pstmt.close();  
-			conn.close();
-			
+			Class.forName(driverClassName);// 指定连接类型
+			conn = DriverManager.getConnection(url, username, password);
+
+			String sql = "SELECT * FROM mydb.students";
+			stmt = conn.prepareStatement(sql);
+
+			rset = stmt.executeQuery();// 执行语句，得到结果集
+			while (rset.next()) {
+				int uid = rset.getInt(1);
+				String uname = rset.getString(2);
+				String sex = rset.getString(3);
+				int age = rset.getInt(4);
+				String tel = rset.getString(5);
+				System.out.println(uid + "\t" + uname + "\t" + sex + "\t" + age + "\t" + tel);
+			} // 显示数据
+
 
 		} catch (Exception e) {
 			throw new RuntimeException(e);
-		}finally {
-			//关闭资源,倒关
-			try {
-			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
-			if(conn != null) conn.close();  //必须要关
-			} catch (Exception e) {
-			}
+		} finally {
+			// 关闭资源,倒关
+            try { if (rset != null) rset.close(); } catch(Exception e) { }
+            try { if (stmt != null) stmt.close(); } catch(Exception e) { }
+            try { if (conn != null) conn.close(); } catch(Exception e) { }
 		}
-		
+
 	}
 
 }

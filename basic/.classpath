@@ -3,5 +3,16 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="E:/software/sqlite3/sqlite-jdbc-3.34.0.jar"/>
+	<classpathentry kind="lib" path="D:/tools/sts-4.8.1.RELEASE/m363/repository/org/mybatis/mybatis/3.5.6/mybatis-3.5.6.jar"/>
+	<classpathentry kind="lib" path="D:/tools/sts-4.8.1.RELEASE/m363/repository/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22.jar"/>
+	<classpathentry kind="lib" path="C:/tools/Java/commons-dbcp-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/tools/Java/commons-dbcp2-2.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/tools/Java/commons-pool-1.6.jar"/>
+	<classpathentry kind="lib" path="C:/tools/Java/commons-pool2-2.9.0.jar"/>
+	<classpathentry kind="lib" path="C:/tools/Java/ibatis-2.3.4.726.jar"/>
+	<classpathentry kind="lib" path="D:/tools/h2/bin/h2-1.4.200.jar"/>
+	<classpathentry kind="lib" path="C:/tools/Java/c3p0-0.9.5.5/c3p0-0.9.5.5.jar"/>
+	<classpathentry kind="lib" path="C:/tools/Java/c3p0-0.9.5.5/mchange-commons-java-0.2.19.jar"/>
+	<classpathentry kind="lib" path="C:/tools/Java/commons-logging-1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

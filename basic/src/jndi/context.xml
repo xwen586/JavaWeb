@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <!--配置SQLite3数据库的JNDI数据源-->
+    <Resource
+        name="jdbc/sqlite"
+        auth="Container"
+        type="javax.sql.DataSource"
+        driverClassName="org.sqlite.JDBC"
+        url="jdbc:sqlite:E:\\workspace\\sts4\\db\\mydb.sqlit3.db"
+        username=""
+        password=""/>
+    <!--配置Mysql数据库的JNDI数据源-->
+    <Resource
+        name="jdbc/mysql"
+        auth="Container"
+        type="javax.sql.DataSource"
+        driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://192.168.99.100:3306/mydb"
+        username="root"
+        password="mypwd" maxTotal="20" maxIdle="10"
+        maxWaitMillis="-1"/>
+    <!--配置Oracle数据库的JNDI数据源-->
+    <Resource 
+        name="jdbc/oracle"
+        auth="Container" 
+        type="javax.sql.DataSource"
+        maxActive="100" 
+        maxIdle="30" 
+        maxWait="10000"
+        username="lead_oams" 
+        password="p"
+        driverClassName="oracle.jdbc.driver.OracleDriver"
+        url="jdbc:oracle:thin:@192.168.1.229:1521:lead"/>
+    <!--配置SQLServer数据库的JNDI数据源-->
+    <Resource 
+        name="jdbc/sqlserver"
+        auth="Container" 
+        type="javax.sql.DataSource"
+        maxActive="100" 
+        maxIdle="30" 
+        maxWait="10000"
+        username="sa" 
+        password="pwd"
+        driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        url="jdbc:sqlserver://192.168.1.51:1433;DatabaseName=demo"/>
+</Context>
